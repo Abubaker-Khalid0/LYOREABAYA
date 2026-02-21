@@ -77,8 +77,8 @@ The project directory layout matches the mandatory file structure defined in the
 ### Edge Cases
 
 - What happens when a user navigates to a route without a locale prefix (e.g., `/` instead of `/ar/` or `/en/`)? The system should redirect to the default locale (`/ar/`).
-- What happens when a user requests an unsupported locale (e.g., `/fr/`)? The system should redirect to the default locale (`/ar/`) or display a 404 page.
-- What happens if a self-hosted font file fails to load? The system should fall back gracefully to a similar system font without breaking the layout.
+- What happens when a user requests an unsupported locale (e.g., `/fr/`)? The system MUST redirect to the default locale (`/ar/`). A 404 page is not shown for locale mismatches.
+- What happens if a self-hosted font file fails to load? The system MUST fall back gracefully to system fonts: `serif` for heading fonts and `sans-serif` for body fonts, configured via `next/font`'s `fallback` option.
 - What happens on a 375px-wide mobile viewport? All content should be visible without horizontal scrolling.
 
 ## Requirements *(mandatory)*

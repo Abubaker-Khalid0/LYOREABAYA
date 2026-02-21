@@ -10,13 +10,13 @@ We will build the foundation (translations and data layer) first, then verify th
 
 ## Phase 1: Setup
 
-- [ ] T001 Verify project structure and `next-intl` configuration alignment in `src/i18n/routing.ts` and `src/middleware.ts`
+- [x] T001 Verify project structure and `next-intl` configuration alignment in `src/i18n/routing.ts` and `src/middleware.ts`
 
 ## Phase 2: Foundational
 
-- [ ] T002 [P] Expand `messages/ar.json` with all 15 content sections (announcement, nav, hero, product, about, collections, sizeGuide, contact, returns, footer, common, etc.)
-- [ ] T003 [P] Expand `messages/en.json` mirroring the exact same key structure as `ar.json` with English translations
-- [ ] T004 [P] Implement `generateWhatsAppUrl` utility function in `src/lib/whatsapp.ts` using constants from the constitution
+- [x] T002 [P] Expand `messages/ar.json` with all 15 content sections (announcement, nav, hero, product, about, collections, sizeGuide, contact, returns, footer, common, etc.)
+- [x] T003 [P] Expand `messages/en.json` mirroring the exact same key structure as `ar.json` with English translations
+- [x] T004 [P] Implement `generateWhatsAppUrl` utility function in `src/lib/whatsapp.ts` using constants from the constitution
 
 ## Phase 3: User Story 1 & 2 — Bilingual Content & Switching
 
@@ -24,9 +24,9 @@ We will build the foundation (translations and data layer) first, then verify th
 
 **Independent Test**: Loading `/ar/` shows all text in Arabic (RTL); loading `/en/` shows all text in English (LTR). No hardcoded strings.
 
-- [ ] T005 [US1] [US2] Verify all translation keys render without warnings in the browser at `/ar/`
-- [ ] T006 [US1] [US2] Verify all translation keys render without warnings in the browser at `/en/`
-- [ ] T007 [US1] [US2] Confirm `dir` attribute and font family switch correctly between locales per constitution in `src/app/[locale]/layout.tsx`
+- [x] T005 [US1] [US2] Verify all translation keys render without warnings in the browser at `/ar/`
+- [x] T006 [US1] [US2] Verify all translation keys render without warnings in the browser at `/en/`
+- [x] T007 [US1] [US2] Confirm `dir` attribute and font family switch correctly between locales per constitution in `src/app/[locale]/layout.tsx`
 
 ## Phase 4: User Story 3 — Product Catalog
 
@@ -34,8 +34,8 @@ We will build the foundation (translations and data layer) first, then verify th
 
 **Independent Test**: `src/data/products.ts` contains 6 unique products with full bilingual metadata.
 
-- [ ] T008 [US3] Populate `src/data/products.ts` with 6 products (3 Winter, 3 Summer categories) following `data-model.md` distribution
-- [ ] T009 [US3] Ensure realistic bilingual names, descriptions, and category labels for all placeholder products in `src/data/products.ts`
+- [x] T008 [US3] Populate `src/data/products.ts` with 6 products (3 Winter, 3 Summer categories) following `data-model.md` distribution
+- [x] T009 [US3] Ensure realistic bilingual names, descriptions, and category labels for all placeholder products in `src/data/products.ts`
 
 ## Phase 5: User Story 4 — WhatsApp Ordering
 
@@ -43,13 +43,13 @@ We will build the foundation (translations and data layer) first, then verify th
 
 **Independent Test**: Calling `generateWhatsAppUrl` with product data returns a valid URL for the store number.
 
-- [ ] T010 [US4] Integrate `generateWhatsAppUrl` with bilingual product data in `src/lib/whatsapp.ts`
-- [ ] T011 [US4] Verify WhatsApp URL pre-fills product name, price, size, and color in the correct language format
+- [x] T010 [US4] Integrate `generateWhatsAppUrl` with bilingual product data in `src/lib/whatsapp.ts`
+- [x] T011 [US4] Verify WhatsApp URL pre-fills product name, price, size, and color in the correct language format
 
 ## Phase 6: Polish
 
-- [ ] T012 Perform a final sweep to ensure zero hardcoded strings exist in any component
-- [ ] T013 Run production build via `npm run build` to confirm zero TypeScript or linting errors
+- [x] T012 Perform a final sweep to ensure zero hardcoded strings exist in any component
+- [x] T013 Run production build via `npm run build` to confirm zero TypeScript or linting errors
 
 ---
 

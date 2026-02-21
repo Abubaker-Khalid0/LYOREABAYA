@@ -3,6 +3,87 @@
         "title": "LYORE ABAYA",
         "description": "Luxury abayas with modern designs"
     },
+    "announcement": "✨ Free shipping across the UAE on all orders",
+    "nav": {
+        "home": "Home",
+        "collections": "Collections",
+        "sizeGuide": "Size Guide",
+        "contact": "Contact"
+    },
+    "hero": {
+        "slide1": {
+            "title": "Timeless Elegance",
+            "subtitle": "Luxury abayas that express your identity",
+            "cta": "Explore the Collection"
+        },
+        "slide2": {
+            "title": "Exclusive Designs",
+            "subtitle": "An abaya for every occasion",
+            "cta": "Shop Now"
+        },
+        "slide3": {
+            "title": "LYORE ABAYA",
+            "subtitle": "Where elegance meets modesty",
+            "cta": "Discover Our Story"
+        }
+    },
+    "product": {
+        "orderNow": "Order Now",
+        "inquire": "Inquire via WhatsApp",
+        "selectSize": "Select Size",
+        "selectColor": "Select Color",
+        "currency": "AED",
+        "featured": "Featured",
+        "noProducts": "No products available"
+    },
+    "about": {
+        "title": "The LYORE Story",
+        "body": "We believe that elegance and modesty are two sides of the same coin. Every abaya we create tells the story of a confident woman."
+    },
+    "collections": {
+        "title": "Collections",
+        "filterAll": "All",
+        "noProducts": "No products in this category"
+    },
+    "sizeGuide": {
+        "title": "Size Guide",
+        "measurementGuide": "How to take your measurements accurately",
+        "headers": {
+            "size": "Size",
+            "length": "Length",
+            "chest": "Chest",
+            "waist": "Waist"
+        },
+        "cta": "Need help choosing your size? Contact us on WhatsApp"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "whatsapp": "WhatsApp",
+        "phone": "Phone",
+        "email": "Email",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "snapchat": "Snapchat"
+    },
+    "returns": {
+        "title": "Shipping & Returns",
+        "freeShipping": "Free shipping across the UAE",
+        "shippingPolicy": "We ship all orders within 2–3 business days across the UAE. For international shipping, please contact us via WhatsApp.",
+        "returnsPolicy": "We accept returns within 7 days of delivery, provided the product is in its original condition with all tags attached. To initiate a return, contact us via WhatsApp."
+    },
+    "footer": {
+        "tagline": "Where elegance meets modesty",
+        "quickLinks": "Quick Links",
+        "socialTitle": "Follow Us",
+        "contactTitle": "Contact Us",
+        "rights": "All rights reserved © LYORE ABAYA 2026"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Something went wrong, please try again",
+        "back": "Back",
+        "viewAll": "View All"
+    },
     "tokens": {
         "heading": "Design System Tokens",
         "subheading": "All 6 design tokens demonstrated via Tailwind utilities and CSS var()",

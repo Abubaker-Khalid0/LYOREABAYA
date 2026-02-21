@@ -173,6 +173,7 @@ Apply per-locale font classes in the root layout based on active locale.
 Create empty directories with `.gitkeep` files:
 - `src/components/layout/`
 - `src/components/sections/`
+- `src/data/`
 - `public/images/`
 
 ### Step 11: Create Placeholder Data Files

@@ -1,0 +1,16 @@
+{
+    "app": {
+        "title": "LYORE ABAYA",
+        "description": "Luxury abayas with modern designs"
+    },
+    "tokens": {
+        "heading": "Design System Tokens",
+        "subheading": "All 6 design tokens demonstrated via Tailwind utilities and CSS var()",
+        "primary": "Primary",
+        "secondary": "Secondary",
+        "accent": "Accent",
+        "background": "Background",
+        "surface": "Surface",
+        "text": "Text"
+    }
+}

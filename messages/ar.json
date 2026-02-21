@@ -1,0 +1,16 @@
+{
+    "app": {
+        "title": "لـيـور عباية",
+        "description": "عبايات فاخرة بتصاميم عصرية"
+    },
+    "tokens": {
+        "heading": "رموز نظام التصميم",
+        "subheading": "جميع الرموز الستة معروضة عبر أدوات Tailwind ومتغيرات CSS",
+        "primary": "أساسي",
+        "secondary": "ثانوي",
+        "accent": "مميز",
+        "background": "خلفية",
+        "surface": "سطح",
+        "text": "نص"
+    }
+}

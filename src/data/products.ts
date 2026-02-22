@@ -71,9 +71,9 @@ export const products: Product[] = [
             { name: "Dark Navy", hex: "#1B1F3B" },
         ],
         images: [
-            "https://images.unsplash.com/photo-1590075865003-e48277faa558?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d44?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
         ],
         featured: true,
         whatsappMessage: {
@@ -102,11 +102,11 @@ export const products: Product[] = [
             { name: "Forest Green", hex: "#228B22" },
         ],
         images: [
-            "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1581044777550-4cfa60707998?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1590075865003-e48277faa558?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
         ],
-        featured: false,
+        featured: true,
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية المخمل الشتوية",
             en: "Hello, I'd like to order the Winter Velvet Abaya",
@@ -132,9 +132,9 @@ export const products: Product[] = [
             { name: "Camel", hex: "#C19A6B" },
         ],
         images: [
-            "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d44?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
         ],
         featured: true,
         whatsappMessage: {
@@ -165,9 +165,9 @@ export const products: Product[] = [
             { name: "Lavender", hex: "#E6E6FA" },
         ],
         images: [
-            "https://images.unsplash.com/photo-1581044777550-4cfa60707998?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1590075865003-e48277faa558?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
         ],
         featured: true,
         whatsappMessage: {
@@ -195,11 +195,11 @@ export const products: Product[] = [
             { name: "Ivory", hex: "#FFFFF0" },
         ],
         images: [
-            "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d44?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1581044777550-4cfa60707998?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
         ],
-        featured: false,
+        featured: true,
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية الكتان الصيفية",
             en: "Hello, I'd like to order the Summer Linen Abaya",
@@ -226,9 +226,9 @@ export const products: Product[] = [
             { name: "Dusty Rose", hex: "#DCAE96" },
         ],
         images: [
-            "https://images.unsplash.com/photo-1590075865003-e48277faa558?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d44?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&h=800&fit=crop",
         ],
         featured: true,
         whatsappMessage: {

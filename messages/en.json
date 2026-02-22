@@ -3,12 +3,16 @@
         "title": "LYORE ABAYA",
         "description": "Luxury abayas with modern designs"
     },
-    "announcement": "✨ Free shipping across the UAE on all orders",
+    "announcement": {
+        "text": "✨ Free shipping across the UAE on all orders",
+        "dismiss": "Dismiss announcement bar"
+    },
     "nav": {
         "home": "Home",
         "collections": "Collections",
         "sizeGuide": "Size Guide",
-        "contact": "Contact"
+        "contact": "Contact",
+        "returns": "Returns Policy"
     },
     "hero": {
         "slide1": {
@@ -93,5 +97,10 @@
         "background": "Background",
         "surface": "Surface",
         "text": "Text"
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "message": "Sorry, we couldn't find the page you're looking for.",
+        "cta": "Return to Home"
     }
 }

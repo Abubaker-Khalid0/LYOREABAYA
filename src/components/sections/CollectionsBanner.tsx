@@ -32,9 +32,8 @@ export function CollectionsBanner() {
                 style={{ y: backgroundY }}
             >
                 <Image
-                    src="/images/collections-banner.png"
-                    alt={t("bannerText")}
-                    fill
+                    src="/images/collections-banner.webp"
+                    alt={t("bannerText")} fill
                     className="object-cover"
                     sizes="100vw"
                 />

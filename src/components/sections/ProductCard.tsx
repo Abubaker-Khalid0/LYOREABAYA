@@ -41,13 +41,12 @@ export function ProductCard({ product }: ProductCardProps) {
                     transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                 >
                     <Image
-                        src={product.images[0]}
+                        src={product.images[0] ?? "/images/placeholder-product.webp"}
                         alt={product.name[locale]}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    />
-                </motion.div>
+                    />                </motion.div>
 
                 {/* Category Badge */}
                 <div className="absolute top-3 start-3">

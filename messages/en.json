@@ -12,7 +12,9 @@
         "collections": "Collections",
         "sizeGuide": "Size Guide",
         "contact": "Contact",
-        "returns": "Returns Policy"
+        "returns": "Returns Policy",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu"
     },
     "hero": {
         "slide1": {

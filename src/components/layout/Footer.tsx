@@ -61,7 +61,7 @@ export function Footer() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 text-sm font-medium text-lyore-text/70 transition-colors hover:text-lyore-primary w-max"
-                                aria-label="WhatsApp"
+                                aria-label={t("contact.whatsapp")}
                             >
                                 <Phone size={16} />
                                 <span dir="ltr">{CONTACT_INFO.phone}</span>
@@ -69,6 +69,7 @@ export function Footer() {
                             <a
                                 href={`mailto:${CONTACT_INFO.email}`}
                                 className="flex items-center gap-2 text-sm font-medium text-lyore-text/70 transition-colors hover:text-lyore-primary w-max"
+                                aria-label={t("contact.email")}
                             >
                                 <Mail size={16} />
                                 <span>{CONTACT_INFO.email}</span>

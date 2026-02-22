@@ -22,6 +22,7 @@ export const NAV_LINKS: NavLink[] = [
     { labelKey: "nav.home", href: "/" },
     { labelKey: "nav.collections", href: "/collections" },
     { labelKey: "nav.sizeGuide", href: "/size-guide" },
+    { labelKey: "nav.returns", href: "/returns" },
     { labelKey: "nav.contact", href: "/contact" },
 ];
 

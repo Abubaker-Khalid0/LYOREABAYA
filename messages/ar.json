@@ -12,7 +12,9 @@
         "collections": "المجموعات",
         "sizeGuide": "دليل المقاسات",
         "contact": "تواصلي معنا",
-        "returns": "سياسة الإرجاع"
+        "returns": "سياسة الإرجاع",
+        "openMenu": "فتح القائمة",
+        "closeMenu": "إغلاق القائمة"
     },
     "hero": {
         "slide1": {

@@ -81,7 +81,7 @@ export function Navbar() {
                     <button
                         className="md:hidden text-lyore-surface p-2 -me-2"
                         onClick={() => setIsDrawerOpen(true)}
-                        aria-label="Open menu"
+                        aria-label={t("nav.openMenu")}
                         aria-expanded={isDrawerOpen}
                     >
                         <Menu size={28} />

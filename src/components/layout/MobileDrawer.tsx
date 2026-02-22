@@ -91,7 +91,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                             <button
                                 onClick={onClose}
                                 className="rounded-full p-2 text-lyore-text transition-colors hover:bg-black/5"
-                                aria-label="Close menu"
+                                aria-label={t("nav.closeMenu")}
                             >
                                 <X size={24} />
                             </button>

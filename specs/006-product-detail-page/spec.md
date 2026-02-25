@@ -5,6 +5,16 @@
 **Status**: Draft  
 **Input**: User description: "Product Detail Page - Complete individual product page with image gallery, size/color selection, WhatsApp ordering, and related products"
 
+## Clarifications
+
+### Session 2026-02-25
+
+- Q: WhatsApp FAB visibility scope - should it be visible on product pages only or all pages site-wide? → A: All pages site-wide (Option B)
+- Q: How should validation errors be displayed when a customer tries to order without selecting required size/color? → A: Inline error message below the selection area (Option A). Size/color are product-level optional attributes - validation only applies when that specific product has those options available.
+- Q: When there are no other products in the same category, what should the Related Products section do? → A: Show 3 products from other categories (Option B). Prioritization: (1) products with matching collection/style tag (e.g., Ramadan, Classic, Luxe), (2) featured products, (3) newest items.
+- Q: What are the requirements for product images in terms of file format, dimensions, and file size? → A: WebP format preferred, 1200x1600px minimum (3:4 aspect ratio), max 500KB per image (Option B)
+- Q: When WhatsApp integration fails, how should the system respond? → A: Show fallback contact options in a modal/overlay (Option B). Display phone number, Instagram, and email. Optionally include a "Copy message" button so customers can paste into WhatsApp manually.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - View Product Details (Priority: P1)
@@ -91,16 +101,15 @@ A customer browsing a product page wants to quickly ask a question about the pro
 
 **Why this priority**: This provides a low-friction way for customers to engage with the business for questions about sizing, availability, customization, or shipping. It reduces barriers to communication and can help convert hesitant customers.
 
-**Independent Test**: Navigate to any product detail page and verify that: (1) a floating WhatsApp button appears in the bottom-right corner (bottom-left in RTL), (2) the button has a pulse animation, (3) clicking it opens WhatsApp with the product name pre-filled, (4) the button is NOT visible on other pages (home, collections, etc.).
+**Independent Test**: Navigate to any product detail page and verify that: (1) a floating WhatsApp button appears in the bottom-right corner (bottom-left in RTL), (2) the button has a pulse animation, (3) clicking it opens WhatsApp with the product name pre-filled.
 
 **Acceptance Scenarios**:
 
 1. **Given** a customer is on a product detail page, **When** the page loads, **Then** they see a floating WhatsApp button fixed to the bottom-right corner (bottom-left in RTL)
 2. **Given** the WhatsApp FAB is visible, **When** the page renders, **Then** the button displays a WhatsApp green icon with the text "استفسري الآن" / "Inquire Now"
 3. **Given** the WhatsApp FAB is visible, **When** the customer observes it, **Then** it has a subtle pulse animation to draw attention
-4. **Given** a customer clicks the WhatsApp FAB, **When** WhatsApp opens, **Then** the message is pre-filled with: "مرحباً، لدي استفسار عن: [product name]" / "Hello, I have a question about: [product name]"
-5. **Given** a customer is on the home page or collections page, **When** they scroll, **Then** the WhatsApp FAB is NOT visible (only visible on product detail pages)
-6. **Given** a customer is on mobile, **When** they view the product page, **Then** the FAB does not overlap with other interactive elements
+4. **Given** a customer clicks the WhatsApp FAB on a product page, **When** WhatsApp opens, **Then** the message is pre-filled with: "مرحباً، لدي استفسار عن: [product name]" / "Hello, I have a question about: [product name]"
+5. **Given** a customer is on mobile, **When** they view the product page, **Then** the FAB does not overlap with other interactive elements
 
 ---
 
@@ -117,7 +126,7 @@ A customer viewing a product wants to see other similar abayas from the same cat
 1. **Given** a customer views a product, **When** they scroll to the bottom of the page, **Then** they see a "قد يعجبك أيضاً" / "You May Also Like" section
 2. **Given** the related products section is visible, **When** it renders, **Then** it displays 3 products from the same category as the current product
 3. **Given** there are fewer than 3 products in the same category, **When** the section renders, **Then** it displays all available products from that category
-4. **Given** there are no other products in the same category, **When** the section renders, **Then** it displays 3 products from other categories or is hidden entirely
+4. **Given** there are no other products in the same category, **When** the section renders, **Then** it displays 3 products from other categories, prioritizing: (1) products with matching collection/style tags, (2) featured products, (3) newest items
 5. **Given** a customer views related products, **When** they click on any related product card, **Then** they are navigated to that product's detail page
 6. **Given** a customer views related products, **When** they click the WhatsApp button on a related product card, **Then** WhatsApp opens with that product's information
 
@@ -127,11 +136,14 @@ A customer viewing a product wants to see other similar abayas from the same cat
 
 - What happens when a product slug does not exist in the products.ts data? → Redirect to 404 page
 - What happens when a product has no images? → Display a placeholder image with the brand logo
+- What happens when a product image fails to load or is corrupted? → Display placeholder image and log error
+- What happens when a product image doesn't meet the recommended format/size (WebP, 1200x1600px, max 500KB)? → Display the image anyway but log a warning for content management
 - What happens when a product has only one size available? → Display that size as pre-selected and non-changeable
 - What happens when a product has only one color available? → Display that color as pre-selected and non-changeable
 - What happens when all sizes are out of stock? → Display "Out of Stock" message and disable the order button, but keep the inquiry button active
 - What happens when a customer tries to order without selecting size/color? → Show validation error message prompting selection
 - What happens when the WhatsApp number is not configured? → Log error and show fallback contact message
+- What happens when WhatsApp fails to open (not installed, network error, invalid number)? → Display a modal/overlay with fallback contact options (phone number, Instagram, email) and optionally a "Copy message" button for manual WhatsApp use
 - What happens when a customer is on a slow connection and images are loading? → Show skeleton loaders for images
 - What happens when a product has more than 10 images? → Display all thumbnails in a scrollable horizontal row
 - What happens when the related products query returns the current product? → Filter out the current product from related products
@@ -140,37 +152,43 @@ A customer viewing a product wants to see other similar abayas from the same cat
 
 ### Functional Requirements
 
-- **FR-001**: System MUST generate a unique URL for each product using the format `/[locale]/products/[slug]` where slug is derived from the product's slug field in products.ts
-- **FR-002**: System MUST use Next.js `generateStaticParams()` to pre-render all product detail pages at build time for optimal performance
+- **FR-001**: System MUST generate a unique URL for each product using the format `/[locale]/products/[slug]` where slug is derived from the product's slug field
+- **FR-002**: System MUST pre-render all product detail pages for optimal performance and instant page loads
 - **FR-003**: System MUST redirect to a 404 page when a user navigates to a product slug that does not exist in the products.ts data
 - **FR-004**: System MUST display the product name in the user's selected language (Arabic or English) from the product's name object
 - **FR-005**: System MUST display the product price in champagne gold color (#C9A96E) with the appropriate currency symbol based on locale (د.إ for Arabic, AED for English)
 - **FR-006**: System MUST display the product category badge with maroon background (#550000) and white text
 - **FR-007**: System MUST display the full product description in the user's selected language from the product's description object
 - **FR-008**: System MUST display all product images in an image gallery with the first image as the main display image
+- **FR-008a**: System SHOULD use WebP format for product images with minimum dimensions of 1200x1600px (3:4 aspect ratio) and maximum file size of 500KB per image for optimal performance and quality
 - **FR-009**: System MUST display thumbnail images below the main image for products with multiple images
 - **FR-010**: System MUST change the main image when a user clicks on a thumbnail, with a smooth fade transition animation
 - **FR-011**: System MUST open a lightbox modal when a user clicks on the main image, displaying the image in full-screen mode
 - **FR-012**: System MUST close the lightbox when a user clicks outside the image, presses ESC, or clicks a close button
-- **FR-013**: System MUST display all available sizes (from the product's sizes array) as selectable options using a radio group or button group
+- **FR-013**: System MUST display all available sizes (from the product's sizes array) as selectable options with clear visual distinction
 - **FR-014**: System MUST visually indicate the selected size with a distinct style (e.g., maroon background, border)
 - **FR-015**: System MUST display all available colors (from the product's colors array) as circular color swatches showing the actual hex color
 - **FR-016**: System MUST visually indicate the selected color with a border around the color swatch
 - **FR-017**: System MUST gray out and disable size options that are marked as out of stock
 - **FR-018**: System MUST display a strikethrough on out-of-stock size labels
-- **FR-019**: System MUST validate that a size is selected before allowing a WhatsApp order
-- **FR-020**: System MUST validate that a color is selected (when multiple colors are available) before allowing a WhatsApp order
+- **FR-019**: System MUST validate that a size is selected before allowing a WhatsApp order, but only if the product has multiple size options available
+- **FR-020**: System MUST validate that a color is selected before allowing a WhatsApp order, but only if the product has multiple color options available
+- **FR-020a**: System MUST display an inline error message below the size selection area when validation fails (e.g., "Please select a size" in red text)
+- **FR-020b**: System MUST display an inline error message below the color selection area when validation fails (e.g., "Please select a color" in red text)
 - **FR-021**: System MUST display a primary "Order Now" button (full-width, maroon background) that opens WhatsApp with a pre-filled order message
 - **FR-022**: System MUST display a secondary "Inquire via WhatsApp" button (outlined style) that opens WhatsApp with a pre-filled inquiry message
 - **FR-023**: System MUST format the WhatsApp order message in the user's selected language with the structure: greeting + product name + price + size + color
 - **FR-024**: System MUST format the WhatsApp inquiry message in the user's selected language with the structure: greeting + product name
 - **FR-025**: System MUST send WhatsApp messages to the business number 971502507859
-- **FR-026**: System MUST display a floating action button (FAB) fixed to the bottom-right corner (bottom-left in RTL) on product detail pages only
-- **FR-027**: System MUST style the WhatsApp FAB with WhatsApp green color (#25D366) and include a WhatsApp icon
+- **FR-025a**: System MUST handle WhatsApp integration failures gracefully by displaying a modal/overlay with fallback contact options (phone number, Instagram, email)
+- **FR-025b**: System SHOULD provide a "Copy message" button in the fallback modal to allow customers to manually paste the pre-filled message into WhatsApp
+- **FR-025c**: System MUST log all WhatsApp integration failures for monitoring and debugging purposes
+- **FR-026**: System MUST display a floating action button (FAB) fixed to the bottom-right corner (bottom-left in RTL) on all pages, with the product name pre-filled in the WhatsApp message when on a product detail page
+- **FR-027**: System MUST style the WhatsApp FAB with WhatsApp green color and include a WhatsApp icon
 - **FR-028**: System MUST animate the WhatsApp FAB with a subtle pulse effect to draw attention
-- **FR-029**: System MUST hide the WhatsApp FAB on non-product pages (home, collections, contact, etc.)
 - **FR-030**: System MUST display a "Related Products" section at the bottom of the product detail page
-- **FR-031**: System MUST show 3 products from the same category as the current product in the related products section
+- **FR-031**: System MUST show 3 products from the same category as the current product in the related products section; if fewer than 3 exist in the same category, fallback to products with matching collection/style tags, then featured products, then newest items
+- **FR-031a**: System MUST support optional collection/style tags on products (e.g., "Ramadan", "Classic", "Luxe") for improved related product matching
 - **FR-032**: System MUST filter out the current product from the related products list
 - **FR-033**: System MUST use the existing ProductCard component to display related products
 - **FR-034**: System MUST display the section heading "قد يعجبك أيضاً" in Arabic or "You May Also Like" in English
@@ -183,7 +201,7 @@ A customer viewing a product wants to see other similar abayas from the same cat
 
 ### Key Entities
 
-- **Product**: Represents an abaya product with attributes including: id, slug, name (bilingual), description (bilingual), price, currency (bilingual), category (bilingual), sizes array, colors array (with name and hex), images array, featured boolean, and whatsappMessage (bilingual)
+- **Product**: Represents an abaya product with attributes including: id, slug, name (bilingual), description (bilingual), price, currency (bilingual), category (bilingual), sizes array, colors array (with name and hex), images array, featured boolean, collection/style tags (optional, e.g., "Ramadan", "Classic", "Luxe"), and whatsappMessage (bilingual)
 - **Size**: Represents a size option with attributes: label (e.g., "S", "M", "L"), availability status (in stock / out of stock)
 - **Color**: Represents a color option with attributes: name (e.g., "Black", "Navy"), hex value (e.g., "#000000")
 - **WhatsApp Message**: Represents a pre-filled message with attributes: recipient number, message text (formatted with product details), language
@@ -198,9 +216,9 @@ A customer viewing a product wants to see other similar abayas from the same cat
 - **SC-004**: The image gallery allows customers to view all product images with smooth transitions (fade animation completes in under 300ms)
 - **SC-005**: The lightbox opens and displays full-screen images within 200ms of clicking the main image
 - **SC-006**: WhatsApp messages are correctly formatted with all product details (name, price, size, color) in the appropriate language 100% of the time
-- **SC-007**: The WhatsApp FAB is visible and functional on all product detail pages and hidden on all other pages
+- **SC-007**: The WhatsApp FAB is visible and functional on all pages, with product-specific pre-filled messages when on a product detail page
 - **SC-008**: Related products section displays 3 relevant products from the same category for 90% of products (excluding products that are the only item in their category)
 - **SC-009**: The product detail page renders correctly in both RTL (Arabic) and LTR (English) layouts with no visual misalignments
-- **SC-010**: All product detail pages are pre-rendered at build time, resulting in instant page loads (Time to First Byte < 100ms)
+- **SC-010**: All product detail pages load instantly with no perceptible delay on standard connections
 - **SC-011**: Customers can navigate from collections page to product detail page and back without losing their filter selection or scroll position
 - **SC-012**: The page achieves a Lighthouse Performance score of 90+ and Accessibility score of 95+

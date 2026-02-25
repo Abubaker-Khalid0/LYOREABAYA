@@ -23,7 +23,7 @@ export function LanguageSwitcher({ className, variant = "default" }: LanguageSwi
         <div
             className={cn(
                 "flex items-center gap-2 text-sm font-medium",
-                variant === "drawer" ? "text-lg text-lyore-text" : "text-lyore-surface",
+                variant === "drawer" ? "text-lg text-lyore-text" : (className ? "" : "text-lyore-surface"),
                 className
             )}
         >

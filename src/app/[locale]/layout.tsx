@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { getFontClasses } from "@/lib/fonts";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "../globals.css";
@@ -27,7 +26,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         <html lang={locale} dir={dir}>
             <body className={`${fontClasses} antialiased min-h-screen flex flex-col`}>
                 <NextIntlClientProvider messages={messages}>
-                    <AnnouncementBar />
                     <Navbar />
                     <main className="flex-1">
                         {children}

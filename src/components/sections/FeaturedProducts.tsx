@@ -13,7 +13,7 @@ export function FeaturedProducts() {
     const sectionRef = useRef<HTMLElement>(null);
     const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" });
 
-    const featuredProducts = products.filter((p) => p.featured);
+    const featuredProducts = products.filter((p) => p.featured).slice(0, 3);
 
     if (featuredProducts.length === 0) return null;
 
@@ -51,7 +51,7 @@ export function FeaturedProducts() {
                     className="mb-12 flex flex-col items-center text-center"
                 >
                     <h2
-                        className="text-3xl font-bold tracking-tight text-lyore-primary sm:text-4xl"
+                        className="text-3xl font-light tracking-widest text-lyore-primary sm:text-4xl"
                         style={{ fontFamily: "var(--font-heading-ar, var(--font-heading-en))" }}
                     >
                         {t("featuredTitle")}
@@ -67,7 +67,7 @@ export function FeaturedProducts() {
                 >
                     {featuredProducts.map((product) => (
                         <motion.div key={product.id} variants={itemVariants}>
-                            <ProductCard product={product} />
+                            <ProductCard product={product} hideWhatsApp={true} />
                         </motion.div>
                     ))}
                 </motion.div>

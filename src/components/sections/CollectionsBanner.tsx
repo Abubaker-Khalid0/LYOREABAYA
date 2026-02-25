@@ -17,44 +17,61 @@ export function CollectionsBanner() {
         offset: ["start end", "end start"],
     });
 
-    const yTransform = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+    // Parallax effect: background moves at 0.5x scroll speed
+    // 0 to 1 progress maps to 0% to 50% movement
+    const yTransform = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const backgroundY = prefersReducedMotion ? "0%" : yTransform;
 
     return (
         <section
             ref={sectionRef}
-            className="relative w-full overflow-hidden"
-            style={{ height: "clamp(320px, 50vh, 500px)" }}
+            className="relative w-full overflow-hidden flex items-center justify-center min-h-[300px] md:min-h-[400px] bg-black"
         >
             {/* Parallax Background */}
             <motion.div
-                className="absolute inset-x-0 -top-[20%] h-[140%] w-full"
+                className="absolute inset-x-0 -top-[50%] h-[200%] w-full"
                 style={{ y: backgroundY }}
             >
                 <Image
-                    src="/images/collections-banner.webp"
-                    alt={t("bannerText")} fill
+                    src="/images/collections-banner.png"
+                    alt={t("bannerText")}
+                    fill
                     className="object-cover"
                     sizes="100vw"
+                    priority={false}
                 />
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-black/50" />
             </motion.div>
 
+            {/* Dark overlay for text readability (Opacity 0.6 to 0.7) */}
+            <div className="absolute inset-0 bg-black/60 z-10" />
+
             {/* Content Overlay */}
-            <div className="relative z-10 flex h-full flex-col items-center justify-center gap-6 px-4 text-center">
+            <div className="relative z-20 flex flex-col items-center justify-center gap-8 text-center px-6 w-full max-w-4xl mx-auto">
+
+                {/* Heading Typography (32px mobile, 42px desktop) */}
                 <h2
-                    className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl text-balance drop-shadow-md"
+                    className="text-[32px] md:text-[42px] font-light tracking-widest text-white text-balance drop-shadow-2xl capitalize"
                     style={{ fontFamily: "var(--font-heading-ar, var(--font-heading-en))" }}
                 >
                     {t("bannerText")}
                 </h2>
-                <Link
-                    href="/collections"
-                    className="flex min-h-[44px] items-center justify-center border border-white/50 bg-white/10 px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white hover:text-black hover:scale-105 active:scale-95"
+
+                {/* CTA Button */}
+                <motion.div
+                    whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                    whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
+                    className="relative overflow-hidden rounded-sm"
                 >
-                    {t("bannerCta")}
-                </Link>
+                    <Link
+                        href="/collections"
+                        className="group relative flex items-center justify-center border border-lyore-accent/80 bg-lyore-primary/90 backdrop-blur-md min-w-[160px] min-h-[48px] px-8 py-3 text-xs md:text-sm font-bold uppercase tracking-widest text-white transition-all duration-500 hover:bg-lyore-accent hover:border-lyore-accent hover:text-black hover:shadow-[0_0_20px_rgba(201,169,110,0.5)]"
+                    >
+                        {/* Shimmer Animation Overlay */}
+                        <div className="absolute inset-0 -translate-x-[150%] animate-[shimmer_3s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg]" />
+
+                        <span className="relative z-10">{t("bannerCta")}</span>
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );

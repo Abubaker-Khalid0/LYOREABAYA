@@ -236,4 +236,94 @@ export const products: Product[] = [
             en: "Hello, I'd like to order the Summer Silk Abaya",
         },
     },
+    // ─── Additional Collection ───────────────────────────────
+    {
+        id: "prod-007",
+        slug: "classic-everyday-abaya",
+        name: {
+            ar: "عباية الكلاسيك اليومية",
+            en: "Classic Everyday Abaya",
+        },
+        description: {
+            ar: "عباية يومية عملية بتصميم كلاسيكي مريح من قماش ندى الكوري الأصلي، تمنحك الثقة في كل إطلالة.",
+            en: "A practical everyday abaya with a comfortable classic design made from original Korean Nida fabric, giving you confidence in every look.",
+        },
+        price: 380,
+        currency: { ar: "د.إ", en: "AED" },
+        category: { ar: "شتوي", en: "Winter" },
+        sizes: ["S", "M", "L", "XL"],
+        colors: [
+            { name: "Black", hex: "#000000" },
+        ],
+        images: [
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
+        ],
+        featured: false,
+        whatsappMessage: {
+            ar: "مرحباً، أرغب بطلب عباية الكلاسيك اليومية",
+            en: "Hello, I'd like to order the Classic Everyday Abaya",
+        },
+    },
+    {
+        id: "prod-008",
+        slug: "summer-floral-chiffon",
+        name: {
+            ar: "عباية الشيفون الموردة",
+            en: "Floral Chiffon Abaya",
+        },
+        description: {
+            ar: "عباية صيفية منعشة بتطريزات ورد رقيقة على الأطراف بلون مغاير، تمنحك إطلالة مليئة بالحيوية.",
+            en: "A refreshing summer abaya with delicate floral embroidery on the edges in a contrasting color, giving you a lively look.",
+        },
+        price: 490,
+        currency: { ar: "د.إ", en: "AED" },
+        category: { ar: "صيفي", en: "Summer" },
+        sizes: ["S", "M", "L", "XL"],
+        colors: [
+            { name: "Dusty Blue", hex: "#779ECB" },
+            { name: "Black", hex: "#000000" },
+        ],
+        images: [
+            "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
+        ],
+        featured: false,
+        whatsappMessage: {
+            ar: "مرحباً، أرغب بطلب عباية الشيفون الموردة",
+            en: "Hello, I'd like to order the Floral Chiffon Abaya",
+        },
+    },
+    {
+        id: "prod-009",
+        slug: "signature-royal-abaya",
+        name: {
+            ar: "عباية التوقيع الملكي",
+            en: "Signature Royal Abaya",
+        },
+        description: {
+            ar: "قطعة فنية فريدة بتصميم ملكي فاخر وتفاصيل مشغولة يدوياً بعناية فائقة، للمناسبات الخاصة التي لا تنسى.",
+            en: "A unique masterpiece with a luxurious royal design and meticulously hand-crafted details, for unforgettable special occasions.",
+        },
+        price: 1250,
+        currency: { ar: "د.إ", en: "AED" },
+        category: { ar: "شتوي", en: "Winter" },
+        sizes: ["M", "L"],
+        colors: [
+            { name: "Midnight Black", hex: "#0A0A0A" },
+            { name: "Gold Accent", hex: "#C9A96E" },
+        ],
+        images: [
+            "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&h=800&fit=crop",
+            "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
+        ],
+        featured: true,
+        whatsappMessage: {
+            ar: "مرحباً، أرغب بطلب عباية التوقيع الملكي",
+            en: "Hello, I'd like to order the Signature Royal Abaya",
+        },
+    },
 ];

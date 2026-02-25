@@ -36,7 +36,29 @@
             "cta": "Discover Our Story"
         }
     },
+    "whyChoose": {
+        "title": "Why Choose LYORE",
+        "features": {
+            "quality": {
+                "title": "Uncompromising Quality",
+                "description": "Meticulous attention to detail in every stitch and seam."
+            },
+            "craftsmanship": {
+                "title": "Expert Craftsmanship",
+                "description": "Tailored by master artisans with decades of experience."
+            },
+            "materials": {
+                "title": "Premium Materials",
+                "description": "Only the finest and most luxurious fabrics are selected."
+            },
+            "delivery": {
+                "title": "Fast Delivery",
+                "description": "Reliable and complimentary shipping across the UAE."
+            }
+        }
+    },
     "product": {
+        "viewDetails": "View Details",
         "orderNow": "Order Now",
         "inquire": "Inquire via WhatsApp",
         "selectSize": "Select Size",
@@ -47,10 +69,13 @@
     },
     "about": {
         "title": "The LYORE Story",
-        "body": "We believe that elegance and modesty are two sides of the same coin. Every abaya we create tells the story of a confident woman."
+        "body": "We believe that elegance and modesty are two sides of the same coin. Every abaya we create tells the story of a confident woman.",
+        "learnMore": "Learn More"
     },
     "collections": {
         "title": "Collections",
+        "subtitle": "Explore our curated collection of luxury abayas",
+        "heroAlt": "LYORE ABAYA luxury collection showcase",
         "filterAll": "All",
         "noProducts": "No products in this category",
         "bannerText": "Discover All Collections",

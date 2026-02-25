@@ -8,6 +8,7 @@ import { Heart } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { Product } from "@/data/products";
 import { generateWhatsAppUrlFromProduct } from "@/lib/whatsapp";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 interface ProductCardProps {
     product: Product;
     hideQuickView?: boolean;
@@ -25,6 +26,7 @@ interface ProductCardProps {
 export function ProductCard({ product, hideQuickView = false, hideWhatsApp = false }: ProductCardProps) {
     const locale = useLocale() as "ar" | "en";
     const t = useTranslations("product");
+    const prefersReducedMotion = useReducedMotion();
     const whatsappUrl = generateWhatsAppUrlFromProduct(product, locale);
 
     return (
@@ -45,8 +47,8 @@ export function ProductCard({ product, hideQuickView = false, hideWhatsApp = fal
                 )}
                 <motion.div
                     className="relative h-full w-full"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+                    whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                    transition={prefersReducedMotion ? {} : { duration: 0.8, ease: [0.33, 1, 0.68, 1] as const }}
                 >
                     <Image
                         src={product.images[0] ?? "/images/placeholder-product.webp"}
@@ -58,13 +60,12 @@ export function ProductCard({ product, hideQuickView = false, hideWhatsApp = fal
                     {product.images[1] && (
                         <Image
                             src={product.images[1]}
-                            alt={`${product.name[locale]} - Alternate View`}
+                            alt={`${product.name[locale]} - ${t("alternateView")}`}
                             fill
                             className="object-cover absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100"
                             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                         />
-                    )}
-                </motion.div>
+                    )}                </motion.div>
 
                 {/* Category Badge */}
                 <div className="absolute top-3 start-3 z-10 flex h-[24px] md:h-[26px]">
@@ -77,7 +78,7 @@ export function ProductCard({ product, hideQuickView = false, hideWhatsApp = fal
                 {!hideQuickView && (
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 transition-opacity duration-400 group-hover:opacity-100 flex items-end justify-center pb-6">
                         <span className="translate-y-4 opacity-0 transition-all duration-400 group-hover:translate-y-0 group-hover:opacity-100 text-white text-xs uppercase tracking-widest border border-white/30 px-6 py-2 bg-white/10 backdrop-blur-md hover:bg-white hover:text-lyore-primary text-shadow-light">
-                            Quick View
+                            {t("quickView")}
                         </span>
                     </div>
                 )}
@@ -102,7 +103,7 @@ export function ProductCard({ product, hideQuickView = false, hideWhatsApp = fal
                 <div className="mt-3 flex gap-2">
                     <Link
                         href={`/products/${product.slug}`}
-                        className="flex-1 flex items-center justify-center gap-2 border border-lyore-primary/20 bg-transparent py-2.5 min-h-[40px] rounded-lg text-[10px] md:text-xs font-bold uppercase tracking-widest text-lyore-primary transition-all duration-300 hover:border-lyore-primary hover:bg-lyore-primary hover:text-lyore-surface hover:shadow-button-primary-hover active:scale-[0.98]"
+                        className="flex-1 flex items-center justify-center gap-2 border border-lyore-primary/20 bg-transparent py-2.5 min-h-[44px] rounded-lg text-[10px] md:text-xs font-bold uppercase tracking-widest text-lyore-primary transition-all duration-300 hover:border-lyore-primary hover:bg-lyore-primary hover:text-lyore-surface hover:shadow-button-primary-hover active:scale-[0.98]"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {t("viewDetails")}
@@ -113,14 +114,13 @@ export function ProductCard({ product, hideQuickView = false, hideWhatsApp = fal
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center aspect-square min-h-[40px] px-3 border border-[#25D366]/30 bg-[#25D366]/5 rounded-lg text-[#25D366] transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] hover:shadow-[0_4px_12px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 active:scale-95"
+                            className="flex items-center justify-center aspect-square min-h-[44px] px-3 border border-[#25D366]/30 bg-[#25D366]/5 rounded-lg text-[#25D366] transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] hover:shadow-[0_4px_12px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 active:scale-95"
                             onClick={(e) => e.stopPropagation()}
-                            aria-label="Order via WhatsApp"
+                            aria-label={t("inquire")}
                         >
                             <IconBrandWhatsapp size={20} stroke={2} />
                         </a>
-                    )}
-                </div>
+                    )}                </div>
             </div>
         </div >
     );

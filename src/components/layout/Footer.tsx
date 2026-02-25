@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { NAV_LINKS, SOCIAL_LINKS, CONTACT_INFO } from "@/lib/navigation";
-import { IconPhone, IconMail } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconMail } from "@tabler/icons-react";
 
 export function Footer() {
     const t = useTranslations();
@@ -93,7 +93,7 @@ export function Footer() {
                                 aria-label={t("contact.whatsapp")}
                             >
                                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366]/10 text-[#25D366] transition-transform duration-300 group-hover:scale-110">
-                                    <IconPhone size={18} stroke={1.5} />
+                                    <IconBrandWhatsapp size={18} stroke={1.5} />
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-[11px] uppercase tracking-wider text-white/50">{t("contact.whatsapp")}</span>

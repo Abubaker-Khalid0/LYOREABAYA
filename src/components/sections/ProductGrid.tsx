@@ -27,40 +27,6 @@ export function ProductGrid({ products }: ProductGridProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(sectionRef, { once: true, margin: "-80px 0px" });
 
-    // Empty state when no products match the filter
-    if (products.length === 0) {
-        return (
-            <div className="flex flex-col items-center justify-center py-20 md:py-32 px-4 flex-1">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4 }}
-                    className="flex flex-col items-center gap-6 max-w-md text-center"
-                >
-                    {/* Subtle icon */}
-                    <div className="relative">
-                        <div className="absolute inset-0 bg-lyore-primary/5 blur-2xl rounded-full" />
-                        <PackageOpen
-                            className="relative w-16 h-16 md:w-20 md:h-20 text-lyore-primary/30 stroke-[1.5]"
-                            aria-hidden="true"
-                        />
-                    </div>
-
-                    {/* Localized empty state text */}
-                    <div className="space-y-2">
-                        <p className="text-lg md:text-xl font-light tracking-wide text-lyore-text/60">
-                            {t("noProducts")}
-                        </p>
-                        <p className="text-sm text-lyore-text/40 tracking-wide">
-                            {t("filterAll")}
-                        </p>
-                    </div>
-                </motion.div>
-            </div>
-        );
-    }
-
     // Animation Variants
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -79,7 +45,7 @@ export function ProductGrid({ products }: ProductGridProps) {
             opacity: 1,
             y: 0,
             scale: 1,
-            transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] }
+            transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] as const }
         },
         exit: {
             opacity: 0,
@@ -88,31 +54,62 @@ export function ProductGrid({ products }: ProductGridProps) {
         }
     };
 
-    // Product grid
     return (
-        <motion.div
-            id="product-grid"
-            ref={sectionRef}
-            aria-live="polite"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-12 min-h-[50vh]"
-        >
-            <AnimatePresence mode="popLayout">
-                {products.map((product) => (
+        <AnimatePresence mode="wait">
+            {products.length === 0 ? (
+                <div key="empty-state" className="flex flex-col items-center justify-center py-20 md:py-32 px-4 flex-1">
                     <motion.div
-                        key={product.id}
-                        variants={itemVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        layout={!prefersReducedMotion}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.4 }}
+                        className="flex flex-col items-center gap-6 max-w-md text-center"
                     >
-                        <ProductCard product={product} hideQuickView={true} />
+                        {/* Subtle icon */}
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-lyore-primary/5 blur-2xl rounded-full" />
+                            <PackageOpen
+                                className="relative w-16 h-16 md:w-20 md:h-20 text-lyore-primary/30 stroke-[1.5]"
+                                aria-hidden="true"
+                            />
+                        </div>
+
+                        {/* Localized empty state text */}
+                        <div className="space-y-2">
+                            <p className="text-lg md:text-xl font-light tracking-wide text-lyore-text/60">
+                                {t("noProducts")}
+                            </p>
+                            <p className="text-sm text-lyore-text/40 tracking-wide">
+                                {t("noProductsHint")}
+                            </p>
+                        </div>
                     </motion.div>
-                ))}
-            </AnimatePresence>
-        </motion.div>
+                </div>
+            ) : (
+                <motion.div
+                    key="product-grid"
+                    id="product-grid"
+                    ref={sectionRef}
+                    aria-live="polite"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-12 min-h-[50vh]"
+                >
+                    <AnimatePresence mode="popLayout">
+                        {products.map((product) => (
+                            <motion.div
+                                key={product.id}
+                                variants={itemVariants}
+                                exit="exit"
+                                layout={!prefersReducedMotion}
+                            >
+                                <ProductCard product={product} hideQuickView={true} />
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 }

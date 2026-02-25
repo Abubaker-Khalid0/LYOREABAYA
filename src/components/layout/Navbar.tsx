@@ -41,8 +41,7 @@ export function Navbar() {
     return (
         <>
             <motion.header
-                className={`fixed top-0 z-50 w-full transition-all duration-500 ${isScrolled ? 'border-b border-surface/10' : ''}`}
-                initial={{ backgroundColor: "rgba(0, 0, 0, 0)", backdropFilter: "blur(0px)" }}
+                className={`fixed top-0 z-50 w-full transition-all duration-500 ${isScrolled ? 'border-b border-lyore-surface/10' : ''}`} initial={{ backgroundColor: "rgba(0, 0, 0, 0)", backdropFilter: "blur(0px)" }}
                 animate={{
                     backgroundColor: isScrolled
                         ? "rgba(85, 0, 0, 0.9)" // Deep Lyore Maroon
@@ -97,19 +96,21 @@ export function Navbar() {
                             {/* Glow effect on hover */}
                             <div className="absolute inset-0 bg-lyore-accent/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                            <div className={`relative transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${isScrolled ? 'h-10 w-28' : 'h-14 w-36'} md:${isScrolled ? 'h-12 w-32' : 'h-16 w-40'}`}>
+                            <div className={`relative transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${isScrolled ? 'h-10 w-28 md:h-12 md:w-32' : 'h-14 w-36 md:h-16 md:w-40'}`}>
                                 <div className="absolute inset-0 w-full h-full transition-opacity duration-300" style={{ opacity: useLightText ? 0 : 1 }}>
-                                    <img
+                                    <Image
                                         src="/images/logo.png"
                                         alt="LYORE ABAYA"
-                                        className="w-full h-full object-contain mix-blend-multiply"
+                                        fill
+                                        className="object-contain mix-blend-multiply"
                                     />
                                 </div>
                                 <div className="absolute inset-0 w-full h-full transition-opacity duration-300" style={{ opacity: useLightText ? 1 : 0 }}>
-                                    <img
+                                    <Image
                                         src="/images/white%20logo.png"
                                         alt="LYORE ABAYA"
-                                        className="w-full h-full object-contain"
+                                        fill
+                                        className="object-contain"
                                     />
                                 </div>
                                 <span className="sr-only">LYORE ABAYA</span>

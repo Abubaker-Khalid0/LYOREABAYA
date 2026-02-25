@@ -49,9 +49,8 @@ export function HeroSlider() {
 
     const goToSlide = (index: number) => {
         setCurrentSlide(index);
-        resetTimer();
+        if (!prefersReducedMotion) resetTimer();
     };
-
     const slideKeys = ["slide1", "slide2", "slide3"] as const;
 
     // Floating animation configuration

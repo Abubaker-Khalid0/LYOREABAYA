@@ -78,6 +78,7 @@
         "heroAlt": "LYORE ABAYA luxury collection showcase",
         "filterAll": "All",
         "noProducts": "No products in this category",
+        "noProductsHint": "Try selecting a different category",
         "bannerText": "Discover All Collections",
         "bannerCta": "View Collections"
     },

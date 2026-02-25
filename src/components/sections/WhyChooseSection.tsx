@@ -24,9 +24,8 @@ export function WhyChooseSection() {
     return (
         <section className="py-24 md:py-32 bg-lyore-background overflow-hidden relative">
             {/* Background subtle elegant decoration */}
-            <div className={`absolute top-0 w-96 h-96 bg-lyore-accent/5 rounded-full blur-3xl pointer-events-none ${isRtl ? 'left-[-10%]' : 'right-[-10%]'}`} />
-            <div className={`absolute bottom-0 w-96 h-96 bg-lyore-accent/5 rounded-full blur-3xl pointer-events-none ${isRtl ? 'right-[-10%]' : 'left-[-10%]'}`} />
-
+            <div className="absolute top-0 w-96 h-96 bg-lyore-accent/5 rounded-full blur-3xl pointer-events-none -end-[10%]" />
+            <div className="absolute bottom-0 w-96 h-96 bg-lyore-accent/5 rounded-full blur-3xl pointer-events-none -start-[10%]" />
             <div className="container mx-auto px-6 md:px-12 lg:px-24 max-w-7xl relative z-10">
                 {/* Section Heading */}
                 <motion.div

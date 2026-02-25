@@ -23,9 +23,8 @@ export function FilterTabs({
     return (
         <div className="w-full mb-6 md:mb-8 overflow-hidden">
             <div
-                className="flex items-center justify-start overflow-x-auto scrollbar-hide snap-x mandatory px-4 pb-4 -mx-4 md:mx-0 pt-2 gap-3"
-                style={{ scrollSnapType: "x mandatory" }}
-                role="tablist"
+                className="flex items-center justify-start overflow-x-auto scrollbar-hide snap-x snap-mandatory px-4 pb-4 -mx-4 md:mx-0 pt-2 gap-3"
+                style={{ scrollSnapType: "x mandatory" }} role="tablist"
                 aria-label={t("filterAll")}
             >
                 {allCategories.map((category) => {

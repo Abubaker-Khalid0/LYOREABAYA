@@ -34,13 +34,12 @@ export function CollectionsBanner() {
             >
                 <Image
                     src="/images/collections-banner.png"
-                    alt={t("bannerText")}
+                    alt={t("heroAlt")}
                     fill
                     className="object-cover"
                     sizes="100vw"
                     priority={false}
-                />
-            </motion.div>
+                />            </motion.div>
 
             {/* Dark overlay for text readability (Opacity 0.6 to 0.7) */}
             <div className="absolute inset-0 bg-black/60 z-10" />
@@ -67,10 +66,10 @@ export function CollectionsBanner() {
                         className="group relative flex items-center justify-center border border-lyore-accent/80 bg-lyore-primary/90 backdrop-blur-md min-w-[160px] min-h-[48px] px-8 py-3 text-xs md:text-sm font-bold uppercase tracking-widest text-white transition-all duration-500 hover:bg-lyore-accent hover:border-lyore-accent hover:text-black hover:shadow-[0_0_20px_rgba(201,169,110,0.5)]"
                     >
                         {/* Shimmer Animation Overlay */}
-                        <div className="absolute inset-0 -translate-x-[150%] animate-[shimmer_3s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg]" />
-
-                        <span className="relative z-10">{t("bannerCta")}</span>
-                    </Link>
+                        {/* Shimmer Animation Overlay */}
+                        {!prefersReducedMotion && (
+                            <div className="absolute inset-0 -translate-x-[150%] animate-[shimmer_3s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg]" />
+                        )}                    </Link>
                 </motion.div>
             </div>
         </section>

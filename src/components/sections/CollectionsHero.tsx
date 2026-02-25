@@ -118,8 +118,7 @@ export function CollectionsHero() {
 
                 {/* Decorative Gold Accent Line */}
                 <motion.div
-                    className="mt-6 md:mt-8 h-[2px] bg-[#C9A96E]"
-                    {...(prefersReducedMotion
+                    className="mt-6 md:mt-8 h-[2px] bg-lyore-accent"                    {...(prefersReducedMotion
                         ? { style: { width: "64px" } }
                         : {
                             initial: lineVariants.initial,

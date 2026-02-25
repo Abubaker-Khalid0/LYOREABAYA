@@ -4,8 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "framer-motion";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { motion, useInView } from "motion/react"; import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export function AboutSection() {
     const t = useTranslations("about");

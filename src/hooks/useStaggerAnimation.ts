@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 /**
  * Hook to generate staggered animation delays for mapped items.
@@ -14,15 +14,12 @@ export function useStaggerAnimation(
     staggerDelay: number = 0.1,
     initialDelay: number = 0
 ): number[] {
-    const [delays, setDelays] = useState<number[]>([]);
-
-    useEffect(() => {
-        const calculatedDelays = Array.from(
-            { length: count },
-            (_, index) => initialDelay + index * staggerDelay
-        );
-        setDelays(calculatedDelays);
-    }, [count, staggerDelay, initialDelay]);
-
-    return delays;
+    return useMemo(
+        () =>
+            Array.from(
+                { length: count },
+                (_, index) => initialDelay + index * staggerDelay
+            ),
+        [count, staggerDelay, initialDelay]
+    );
 }

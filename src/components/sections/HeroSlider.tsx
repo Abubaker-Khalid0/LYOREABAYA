@@ -107,7 +107,7 @@ export function HeroSlider() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-                            className="flex flex-col gap-4 md:gap-6 text-start items-start"
+                            className={`flex flex-col gap-4 md:gap-6 ${isRtl ? 'text-right items-end' : 'text-left items-start'}`}
                         >
                             <h1
                                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-lyore-primary leading-tight drop-shadow-sm tracking-tight"

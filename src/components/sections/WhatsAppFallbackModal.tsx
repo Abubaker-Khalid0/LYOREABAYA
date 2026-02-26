@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Check, Phone, Mail, Instagram } from "lucide-react";
@@ -25,13 +25,20 @@ const STORE_INSTAGRAM = "https://www.instagram.com/lyoreabaya";
 export function WhatsAppFallbackModal({ isOpen, onClose, messageText }: WhatsAppFallbackModalProps) {
     const t = useTranslations("product");
     const [copied, setCopied] = useState(false);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        };
+    }, []);
 
     const handleCopy = useCallback(async () => {
         if (!messageText) return;
         try {
             await navigator.clipboard.writeText(messageText);
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            timeoutRef.current = setTimeout(() => setCopied(false), 2000);
         } catch {
             // Clipboard API not available — silently fail
         }
@@ -136,8 +143,8 @@ export function WhatsAppFallbackModal({ isOpen, onClose, messageText }: WhatsApp
                             <button
                                 onClick={handleCopy}
                                 className={`w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 ${copied
-                                        ? "bg-green-50 text-green-600 border border-green-200"
-                                        : "bg-lyore-surface hover:bg-lyore-primary/5 text-lyore-text border border-lyore-primary/10 hover:border-lyore-primary/30"
+                                    ? "bg-green-50 text-green-600 border border-green-200"
+                                    : "bg-lyore-surface hover:bg-lyore-primary/5 text-lyore-text border border-lyore-primary/10 hover:border-lyore-primary/30"
                                     }`}
                             >
                                 {copied ? (

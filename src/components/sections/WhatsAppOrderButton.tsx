@@ -39,8 +39,12 @@ export function WhatsAppOrderButton({
 
     // Primary: Order Now (T020)
     const handleOrder = () => {
-        const hasSize = !!selectedSize;
-        const hasColor = !!selectedColor;
+        // Only require selections for options that exist on the product
+        const needsSize = product.sizes.length > 0;
+        const needsColor = product.colors.length > 0;
+
+        const hasSize = !needsSize || !!selectedSize;
+        const hasColor = !needsColor || !!selectedColor;
 
         if (!hasSize || !hasColor) {
             onValidationFail();
@@ -48,8 +52,8 @@ export function WhatsAppOrderButton({
         }
 
         const url = generateWhatsAppUrlFromProduct(product, locale, {
-            size: selectedSize,
-            color: selectedColor.name,
+            size: selectedSize ?? undefined,
+            color: selectedColor?.name,
         });
 
         const result = openWhatsApp(url);

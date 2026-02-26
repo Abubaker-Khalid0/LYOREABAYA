@@ -40,8 +40,8 @@ export function ProductInfo({ product, locale }: ProductInfoProps) {
 
     // Validation fail callback — sets both errors (T019 + T023)
     const handleValidationFail = () => {
-        if (!selectedSize) setSizeError(true);
-        if (!selectedColor) setColorError(true);
+        if (!selectedSize && product.sizes.length > 1) setSizeError(true);
+        if (!selectedColor && product.colors.length > 1) setColorError(true);
     };
 
     // Fallback callback — opens modal (T022 + T023)

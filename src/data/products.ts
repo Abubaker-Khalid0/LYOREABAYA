@@ -41,6 +41,8 @@ export interface Product {
     images: string[];
     /** Whether product appears in featured section */
     featured: boolean;
+    /** Optional collection/style tags for related product matching (e.g., "Ramadan", "Classic", "Luxe") */
+    collectionTags?: string[];
     /** Pre-filled WhatsApp message template */
     whatsappMessage: BilingualText;
 }
@@ -76,6 +78,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
         ],
         featured: true,
+        collectionTags: ["Formal", "Luxe"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية الأناقة الشتوية",
             en: "Hello, I'd like to order the Winter Elegance Abaya",
@@ -107,6 +110,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
         ],
         featured: true,
+        collectionTags: ["Formal", "Luxe", "Evening"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية المخمل الشتوية",
             en: "Hello, I'd like to order the Winter Velvet Abaya",
@@ -137,6 +141,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
         ],
         featured: true,
+        collectionTags: ["Classic", "Casual"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية الصوف الفاخرة",
             en: "Hello, I'd like to order the Luxury Wool Abaya",
@@ -170,6 +175,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
         ],
         featured: true,
+        collectionTags: ["Casual", "Floral"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية نسيم الصيف",
             en: "Hello, I'd like to order the Summer Breeze Abaya",
@@ -200,6 +206,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
         ],
         featured: true,
+        collectionTags: ["Classic", "Casual"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية الكتان الصيفية",
             en: "Hello, I'd like to order the Summer Linen Abaya",
@@ -231,6 +238,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&h=800&fit=crop",
         ],
         featured: true,
+        collectionTags: ["Luxe", "Formal", "Evening"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية الحرير الصيفية",
             en: "Hello, I'd like to order the Summer Silk Abaya",
@@ -261,6 +269,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&h=800&fit=crop",
         ],
         featured: false,
+        collectionTags: ["Classic", "Casual", "Everyday"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية الكلاسيك اليومية",
             en: "Hello, I'd like to order the Classic Everyday Abaya",
@@ -291,6 +300,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop",
         ],
         featured: false,
+        collectionTags: ["Casual", "Floral"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية الشيفون الموردة",
             en: "Hello, I'd like to order the Floral Chiffon Abaya",
@@ -321,6 +331,7 @@ export const products: Product[] = [
             "https://images.unsplash.com/photo-1632149877166-f75d49000351?w=600&h=800&fit=crop",
         ],
         featured: true,
+        collectionTags: ["Luxe", "Formal", "Ramadan", "Evening"],
         whatsappMessage: {
             ar: "مرحباً، أرغب بطلب عباية التوقيع الملكي",
             en: "Hello, I'd like to order the Signature Royal Abaya",

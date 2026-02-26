@@ -65,7 +65,22 @@
         "selectColor": "اختاري اللون",
         "currency": "د.إ",
         "featured": "مميزة",
-        "noProducts": "لا توجد منتجات حالياً"
+        "noProducts": "لا توجد منتجات حالياً",
+        "outOfStock": "نفذت الكمية",
+        "relatedProducts": "قد يعجبك أيضاً",
+        "errorSelectSize": "الرجاء اختيار المقاس",
+        "errorSelectColor": "الرجاء اختيار اللون",
+        "whatsappFallbackTitle": "تواصلي معنا",
+        "whatsappFallbackMessage": "لم نتمكن من فتح واتساب. يمكنك التواصل معنا عبر:",
+        "copyMessage": "نسخ الرسالة",
+        "messageCopied": "تم نسخ الرسالة!",
+        "inquireNow": "استفسري الآن",
+        "quickView": "عرض سريع",
+        "imageAlt": "صورة المنتج {index} من {total}",
+        "thumbnailAlt": "الصورة المصغرة {index}",
+        "clickToZoom": "انقري لتكبير الصورة",
+        "closeLightbox": "إغلاق عرض الصورة",
+        "alternateView": "عرض بديل"
     },
     "about": {
         "title": "قصة LYORE",

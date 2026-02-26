@@ -19,14 +19,14 @@ The plan follows an incremental approach: establish the design system foundation
   - **Property 1: Text Contrast Ratio Compliance**
   - **Validates: Requirements 1.2, 9.2**
 
-- [x] 2. Create Core Utility Hooks
+- [ ] 2. Create Core Utility Hooks
   - Implement useReducedMotion hook for motion preference detection
   - Implement useIntersectionObserver hook for scroll-triggered animations
   - Implement useStaggerAnimation hook for sequential element reveals
   - Create animation utility functions (getVariantWithReducedMotion, getVariantForMobile)
   - _Requirements: 9.7, 12.2, 12.9_
 
-- [x] 3. Enhance HeroSlider Component
+- [ ] 3. Enhance HeroSlider Component
   - Increase overlay opacity to 0.5-0.6 for better contrast
   - Update heading typography to 48px+ desktop, 32px+ mobile
   - Enhance CTA button with professional hover effects (scale, glow, shimmer)
@@ -43,7 +43,7 @@ The plan follows an incremental approach: establish the design system foundation
   - **Property 3: Touch Target Size Compliance**
   - **Validates: Requirements 1.6, 3.8, 7.7**
 
-- [x] 4. Create WhyChooseSection Component (New)
+- [ ] 4. Create WhyChooseSection Component (New)
   - Create component structure with section heading and 4-column grid layout
   - Implement FeatureCard sub-component with circular icon container (80px diameter)
   - Add Champagne Gold (#C9A96E) icons on Warm Off-White (#FAF7F4) background
@@ -66,7 +66,7 @@ The plan follows an incremental approach: establish the design system foundation
   - **Property 6: Brand Font Application**
   - **Validates: Requirements 2.9**
 
-- [x] 5. Enhance ProductCard Component
+- [ ] 5. Enhance ProductCard Component
   - Add rounded corners (12px border-radius minimum)
   - Implement multi-layer shadow system (rest and hover states)
   - Add sophisticated hover effects (translateY -8px, scale 1.02, image zoom 1.08)
@@ -114,7 +114,7 @@ The plan follows an incremental approach: establish the design system foundation
   - **Property 10: Feature Item Icon Size**
   - **Validates: Requirements 4.4**
 
-- [x] 8. Enhance AboutSection Component
+- [ ] 8. Enhance AboutSection Component
   - Add decorative accent line (60px × 4px in Champagne Gold)
   - Implement decorative corner elements (top-left and bottom-right)
   - Update typography hierarchy (36px desktop, 28px mobile for heading)
@@ -126,7 +126,7 @@ The plan follows an incremental approach: establish the design system foundation
   - Ensure proper RTL/LTR text/image positioning
   - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12_
 
-- [x] 9. Enhance CollectionsBanner Component
+- [ ] 9. Enhance CollectionsBanner Component
   - Increase overlay opacity to 0.5-0.7
   - Implement parallax effect (background moves at 0.5x scroll speed)
   - Add shimmer animation to overlay

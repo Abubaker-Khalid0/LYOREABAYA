@@ -4,6 +4,7 @@ import { getMessages } from "next-intl/server";
 import { getFontClasses } from "@/lib/fonts";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { WhatsAppFAB } from "@/components/sections/WhatsAppFAB";
 import "../globals.css";
 
 type Props = {
@@ -31,6 +32,8 @@ export default async function LocaleLayout({ children, params }: Props) {
                         {children}
                     </main>
                     <Footer />
+                    {/* WhatsApp FAB — visible on all pages (T025) */}
+                    <WhatsAppFAB />
                 </NextIntlClientProvider>
             </body>
         </html>

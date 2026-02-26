@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <!-- Background: warm off-white -->
+  <rect width="1200" height="1600" fill="#FAF7F4"/>
+  
+  <!-- Subtle border -->
+  <rect x="2" y="2" width="1196" height="1596" rx="8" fill="none" stroke="#E8E0D8" stroke-width="2"/>
+  
+  <!-- Brand circle backdrop -->
+  <circle cx="600" cy="700" r="200" fill="#FEFDFB" stroke="#C9A96E" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Abaya silhouette icon (simplified) -->
+  <g transform="translate(600,680)" fill="#550000" opacity="0.35">
+    <!-- Head circle -->
+    <circle cx="0" cy="-120" r="30"/>
+    <!-- Body/abaya shape -->
+    <path d="M-60,-85 C-60,-85 -80,0 -100,120 L-60,120 C-50,40 -30,0 0,-20 C30,0 50,40 60,120 L100,120 C80,0 60,-85 60,-85 Z"/>
+    <!-- Sleeves -->
+    <path d="M-60,-60 C-90,-30 -120,10 -130,40 L-100,50 C-90,20 -70,-10 -50,-40 Z"/>
+    <path d="M60,-60 C90,-30 120,10 130,40 L100,50 C90,20 70,-10 50,-40 Z"/>
+  </g>
+  
+  <!-- Brand name -->
+  <text x="600" y="920" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#550000" letter-spacing="8" opacity="0.5">LYORE ABAYA</text>
+  
+  <!-- "No image available" text -->
+  <text x="600" y="980" text-anchor="middle" font-family="Inter, 'Helvetica Neue', sans-serif" font-size="22" fill="#999" letter-spacing="1">Image not available</text>
+  
+  <!-- Decorative gold line -->
+  <line x1="480" y1="950" x2="720" y2="950" stroke="#C9A96E" stroke-width="1" opacity="0.4"/>
+</svg>

@@ -65,7 +65,22 @@
         "selectColor": "Select Color",
         "currency": "AED",
         "featured": "Featured",
-        "noProducts": "No products available"
+        "noProducts": "No products available",
+        "outOfStock": "Out of Stock",
+        "relatedProducts": "You May Also Like",
+        "errorSelectSize": "Please select a size",
+        "errorSelectColor": "Please select a color",
+        "whatsappFallbackTitle": "Contact Us",
+        "whatsappFallbackMessage": "Unable to open WhatsApp. You can contact us via:",
+        "copyMessage": "Copy Message",
+        "messageCopied": "Message copied!",
+        "inquireNow": "Inquire Now",
+        "quickView": "Quick View",
+        "imageAlt": "Product image {index} of {total}",
+        "thumbnailAlt": "Thumbnail {index}",
+        "clickToZoom": "Click to zoom image",
+        "closeLightbox": "Close image view",
+        "alternateView": "alternate view"
     },
     "about": {
         "title": "The LYORE Story",

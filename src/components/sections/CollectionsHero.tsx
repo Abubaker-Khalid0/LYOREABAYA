@@ -57,7 +57,7 @@ export function CollectionsHero() {
 
     return (
         <section
-            className="relative w-full h-[40vh] overflow-hidden"
+            className="relative w-full min-h-[40vh] md:h-[50vh] overflow-hidden"
             aria-label={t("title")}
         >
             {/* Background Image */}
@@ -75,7 +75,7 @@ export function CollectionsHero() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60" />
 
             {/* Content Container */}
-            <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 md:px-12 text-center">
+            <div className="relative z-10 h-full flex flex-col items-center justify-center pt-24 px-6 md:px-12 text-center">
                 {/* Title */}
                 <motion.h1
                     className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-wider ${isRtl ? "font-heading-ar" : "font-heading-en"

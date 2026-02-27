@@ -163,6 +163,19 @@ export function generateGenericInquiryUrl(locale: "ar" | "en"): string {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
+/**
+ * Generates a WhatsApp URL pre-filled with an exchange request message.
+ * Used by the Returns & Shipping page CTA (T001).
+ */
+export function generateExchangeRequestUrl(locale: "ar" | "en"): string {
+    const message =
+        locale === "ar"
+            ? `مرحباً، أرغب في بدء طلب استبدال`
+            : `Hello, I'd like to initiate an exchange request`;
+
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 /* ─────────────────────────────────────────────────────────────
  * WhatsApp open wrapper with failure detection (T008)
  * ─────────────────────────────────────────────────────────────*/

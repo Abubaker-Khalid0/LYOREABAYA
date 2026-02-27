@@ -99,29 +99,55 @@
     },
     "sizeGuide": {
         "title": "Size Guide",
+        "subtitle": "Find your perfect fit",
         "measurementGuide": "How to take your measurements accurately",
         "headers": {
-            "size": "Size",
+            "size": "Abaya size",
             "length": "Length",
+            "bust": "Bust",
+            "sleeve": "Sleeve",
+            "hips": "Hips",
+            "shoulder": "Shoulder"
+        },
+        "steps": {
+            "height": "Height",
+            "heightDesc": "Stand straight and measure from top of head to floor",
             "chest": "Chest",
-            "waist": "Waist"
+            "chestDesc": "Measure around the fullest part of your chest",
+            "waist": "Waist",
+            "waistDesc": "Measure around the narrowest part of your waist"
         },
         "cta": "Need help choosing your size? Contact us on WhatsApp"
     },
     "contact": {
         "title": "Contact Us",
+        "subtitle": "We'd love to hear from you",
+        "home": "Home",
+        "breadcrumbContact": "Contact",
+        "contactDetails": "Contact Details",
+        "ourContactInfo": "Our Contact Information",
         "whatsapp": "WhatsApp",
+        "whatsappHint": "+971 50 250 7859",
         "phone": "Phone",
+        "phoneHint": "+971 50 250 7859",
         "email": "Email",
+        "emailHint": "Lyoreabaya@gmail.com",
         "instagram": "Instagram",
+        "instagramHint": "@Lyore_abaya",
         "tiktok": "TikTok",
-        "snapchat": "Snapchat"
+        "tiktokHint": "@Lyore.abaya",
+        "snapchat": "Snapchat",
+        "snapchatHint": "@Lyoreabayas"
     },
     "returns": {
         "title": "Shipping & Returns",
+        "subtitle": "Our policies, for your peace of mind",
         "freeShipping": "Free shipping across the UAE",
-        "shippingPolicy": "We ship all orders within 2–3 business days across the UAE. For international shipping, please contact us via WhatsApp.",
-        "returnsPolicy": "We accept returns within 7 days of delivery, provided the product is in its original condition with all tags attached. To initiate a return, contact us via WhatsApp."
+        "shippingTitle": "Shipping Policy",
+        "shippingPolicy": "We ship all orders within 2–5 business days across the UAE. For international shipping, please contact us via WhatsApp.",
+        "returnsTitle": "Exchange Policy",
+        "returnsPolicy": "We accept exchanges (not refunds) within 7 days of delivery. Items must be unworn, tagged, and in original packaging. To initiate an exchange, contact us via WhatsApp.",
+        "exchangeCta": "To start an exchange request, contact us via WhatsApp"
     },
     "footer": {
         "tagline": "Where elegance meets modesty",
